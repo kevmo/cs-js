@@ -1,0 +1,60 @@
+<html>
+<head></head>
+<body>
+  Mixins = classes that offer functionality that can easily be inherited by a sub-class or groups thereof for the purpose of function reuse.
+
+  "Subclassing" = inheriting properties for a new object from a base or 'superclass' object.
+
+  Class B can extend Class A --> Class B is the subclass, Class A is the superclass.
+
+  Backbone pattern: Backbone calls _.extend(Model.prototype, Events) on the Backbone primitives prototype objects, incl. Models, Views, Collection, Router, and History.
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+<script>
+// SUBCLASSING
+// ---------------------
+
+  // Superclass
+  var Person = function (first, last){
+    this.firstName = first;
+    this.lastName = last;
+    this.gender = "male";
+  };
+
+  // Subclass
+  var clark = new Person("clark", "kent");
+
+  // Define a subclass for superhero constructor
+
+  var Superhero = function(first, last, powers){
+    // invoke the superclass
+    Person.call(this, first, last);
+
+    this.powers = powers;
+  };
+
+// MIXINS
+// ----------------------
+
+var Cow = {
+  moo: function(){
+    console.log("moooo");
+  }
+};
+
+var BabyCow = function(){
+  this.baby = true;
+};
+
+// mix Cow into BabyCow!
+_.extend(BabyCow.prototype, Cow);
+
+var calf = new BabyCow();
+
+calf.baby;
+calf.moo();
+
+
+
+</script>
+</body>
+</html>
