@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Closures</title>
+</head>
+
+<body>
+
+Closures are functions that inherit variables form their enclosing environments.
+
+Closures maintain references to variables that were within scope at the time of their declaration. Closures maintain context.
+<br>
+<button style="height:40px; width:50px; margin:100px;">Click me</button>
+
+
+<script>
+  (function(){
+    window.onload = function(){
+      var timesClicked = 0
+
+      document.getElementsByTagName('button')[0].onclick = function(){
+        timesClicked++;
+        alert("Clicks: " + timesClicked);
+      };
+    };
+  })();
+
+
+</script>
+
+</body>
+</html>
